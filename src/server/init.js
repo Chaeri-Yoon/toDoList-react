@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
+import cors from 'cors';
 
 import './db';
 import './passport';
@@ -28,6 +29,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors())
 
 app.use(routes.api, apiRouter);
 
